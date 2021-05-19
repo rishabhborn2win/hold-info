@@ -4,28 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body{
-            background-color: black;
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 <body>
-    <!-- <script>
-        let request = new XMLHttpRequest();
-        request.open("GET", "/name");
-        request.send();
-        request.onload(() => {
-            console.log(request);
-            if(request.status === 200){
-                console.log(request.response);
-            }else {
-                console.log("ERROR");
-            }
-        })
-    </script> -->
     <script type="text/javascript">
         var apiUrl = '/name';
         fetch(apiUrl).then(response => {
@@ -38,6 +20,34 @@
           // Do something for an error here
         });
     </script>
-    <h1 id="name"></h1>
+    <div class="top-row">
+        <img src="images/logo.png" class="logo"/>
+    </div>
+        <table>
+        <tr class="heading">
+            <td>#</td>
+            <td>Name</td>
+            <td>Last</td>
+            <td>Buy/Sell Price</td>
+            <td>volume</td>
+            <td>base_unit</td>
+        </tr>
+        <tr class="row">
+            <td>1</td>
+            <td>BTC/INR</td>
+            <td>&#8377; 2,587,560</td>
+            <td>&#8377; 2,587,560 / &#8377; 2,576,987</td>
+            <td>28.16729</td>
+            <td>btc</td>
+        </tr>
+        <tr class="row">
+            <td>2</td>
+            <td>BTC/INR</td>
+            <td>&#8377; 2,587,560</td>
+            <td>&#8377; 2,587,560 / &#8377; 2,576,987</td>
+            <td>28.16729</td>
+            <td>btc</td>
+        </tr>
+        </table>
 </body>
 </html>

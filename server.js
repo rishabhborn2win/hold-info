@@ -3,8 +3,8 @@ const app = new express();
 const { default: axios } = require('axios');
 var morgan = require('morgan')
 
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 
-morgan(':method :url :status :res[content-length] - :response-time ms')
 
 
 
@@ -23,6 +23,8 @@ app.use(function (req, res, next) {
     // Pass to next layer of middleware
     next();
   });
+
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', async function(req, res){
     res.sendFile(__dirname + '/index.html');
