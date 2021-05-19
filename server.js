@@ -31,8 +31,89 @@ app.get('/', async function(req, res){
 });
 
 app.get('/name', async function(req, res){
-    var name = await axios.get("https://www.lfyd.in/api/getdetail/9044937880")
-    res.json(name.data);
+    var data =[
+        {
+            name: "BTC/INR",
+            last: "2587560",
+            buy: "2,587,560",
+            sell: "2,987,870",
+            volume: "28.16729",
+            base_unit: "btc"
+        },
+        {
+            name: "BTC/INR",
+            last: "2587560",
+            buy: "2,587,560",
+            sell: "2,987,870",
+            volume: "28.16729",
+            base_unit: "btc"
+        },
+        {
+            name: "BTC/INR",
+            last: "2587560",
+            buy: "2,587,560",
+            sell: "2,987,870",
+            volume: "28.16729",
+            base_unit: "btc"
+        },
+        {
+            name: "BTC/INR",
+            last: "2587560",
+            buy: "2,587,560",
+            sell: "2,987,870",
+            volume: "28.16729",
+            base_unit: "btc"
+        },
+        {
+            name: "BTC/INR",
+            last: "2587560",
+            buy: "2,587,560",
+            sell: "2,987,870",
+            volume: "28.16729",
+            base_unit: "btc"
+        },
+        {
+            name: "BTC/INR",
+            last: "2587560",
+            buy: "2,587,560",
+            sell: "2,987,870",
+            volume: "28.16729",
+            base_unit: "btc"
+        },
+        {
+            name: "BTC/INR",
+            last: "2587560",
+            buy: "2,587,560",
+            sell: "2,987,870",
+            volume: "28.16729",
+            base_unit: "btc"
+        },
+        {
+            name: "BTC/INR",
+            last: "2587560",
+            buy: "2,587,560",
+            sell: "2,987,870",
+            volume: "28.16729",
+            base_unit: "btc"
+        },
+        {
+            name: "BTC/INR",
+            last: "2587560",
+            buy: "2,587,560",
+            sell: "2,987,870",
+            volume: "28.16729",
+            base_unit: "btc"
+        },
+        {
+            name: "BTC/INR",
+            last: "2587560",
+            buy: "2,587,560",
+            sell: "2,987,870",
+            volume: "28.16729",
+            base_unit: "btc"
+        },
+    ]
+    res.json(data);
 })
 
 

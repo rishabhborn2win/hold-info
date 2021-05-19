@@ -5,25 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <title>Assignment</title>
 </head>
 <body>
     <script type="text/javascript">
+        var details = []
         var apiUrl = '/name';
         fetch(apiUrl).then(response => {
           return response.json();
         }).then(data => {
           // Work with JSON data here
-          console.log(data);
-          var apiData = data;
-        }).catch(err => {
-          // Do something for an error here
-        });
-    </script>
-    <div class="top-row">
-        <img src="images/logo.png" class="logo"/>
-    </div>
-        <table>
+          var string = `<table>
         <tr class="heading">
             <td>#</td>
             <td>Name</td>
@@ -31,23 +23,36 @@
             <td>Buy/Sell Price</td>
             <td>volume</td>
             <td>base_unit</td>
-        </tr>
-        <tr class="row">
-            <td>1</td>
-            <td>BTC/INR</td>
-            <td>&#8377; 2,587,560</td>
-            <td>&#8377; 2,587,560 / &#8377; 2,576,987</td>
-            <td>28.16729</td>
-            <td>btc</td>
-        </tr>
-        <tr class="row">
-            <td>2</td>
-            <td>BTC/INR</td>
-            <td>&#8377; 2,587,560</td>
-            <td>&#8377; 2,587,560 / &#8377; 2,576,987</td>
-            <td>28.16729</td>
-            <td>btc</td>
-        </tr>
-        </table>
+        </tr>`;
+        var i=1;
+        data.map((detail) => {
+            // below function is use to seperate the thousands of the number
+            nfObject = new Intl.NumberFormat('en-US');
+            output = nfObject.format(detail.last);
+            
+            //this is the output string
+            string += `<tr class="row">
+            <td>${i++}</td>
+            <td>${detail.name}</td>
+            <td>&#8377; ${output}</td>
+            <td>&#8377; ${detail.buy} / &#8377; ${detail.sell}</td>
+            <td>${detail.volume}</td>
+            <td>${detail.base_unit}</td>
+            </tr>`
+
+            return 0;
+        })
+        string += `</table>`;
+        console.log(string);
+        document.getElementById('table').innerHTML = string;
+        }).catch(err => {
+          document.getElementById('table').innerHTML="Server Error!"
+        });
+
+    </script>
+    <div class="top-row">
+        <img src="images/logo.png" class="logo"/>
+    </div>
+    <div id="table"></div>
 </body>
 </html>
