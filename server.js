@@ -31,88 +31,11 @@ app.get('/', async function(req, res){
 });
 
 app.get('/name', async function(req, res){
-    var data =[
-        {
-            name: "BTC/INR",
-            last: "2587560",
-            buy: "2,587,560",
-            sell: "2,987,870",
-            volume: "28.16729",
-            base_unit: "btc"
-        },
-        {
-            name: "BTC/INR",
-            last: "2587560",
-            buy: "2,587,560",
-            sell: "2,987,870",
-            volume: "28.16729",
-            base_unit: "btc"
-        },
-        {
-            name: "BTC/INR",
-            last: "2587560",
-            buy: "2,587,560",
-            sell: "2,987,870",
-            volume: "28.16729",
-            base_unit: "btc"
-        },
-        {
-            name: "BTC/INR",
-            last: "2587560",
-            buy: "2,587,560",
-            sell: "2,987,870",
-            volume: "28.16729",
-            base_unit: "btc"
-        },
-        {
-            name: "BTC/INR",
-            last: "2587560",
-            buy: "2,587,560",
-            sell: "2,987,870",
-            volume: "28.16729",
-            base_unit: "btc"
-        },
-        {
-            name: "BTC/INR",
-            last: "2587560",
-            buy: "2,587,560",
-            sell: "2,987,870",
-            volume: "28.16729",
-            base_unit: "btc"
-        },
-        {
-            name: "BTC/INR",
-            last: "2587560",
-            buy: "2,587,560",
-            sell: "2,987,870",
-            volume: "28.16729",
-            base_unit: "btc"
-        },
-        {
-            name: "BTC/INR",
-            last: "2587560",
-            buy: "2,587,560",
-            sell: "2,987,870",
-            volume: "28.16729",
-            base_unit: "btc"
-        },
-        {
-            name: "BTC/INR",
-            last: "2587560",
-            buy: "2,587,560",
-            sell: "2,987,870",
-            volume: "28.16729",
-            base_unit: "btc"
-        },
-        {
-            name: "BTC/INR",
-            last: "2587560",
-            buy: "2,587,560",
-            sell: "2,987,870",
-            volume: "28.16729",
-            base_unit: "btc"
-        },
-    ]
+    var apiData = await axios.get('https://api.wazirx.com/api/v2/tickers');
+    var data =[];
+    for(var i=0; i<10; i++){
+      data.push(apiData.data[Object.keys(apiData.data)[i]]);
+    }
     res.json(data);
 })
 
